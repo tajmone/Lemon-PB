@@ -18,6 +18,7 @@ Project created by [Tristano Ajmone] in 2021/07/14.
 
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3,4" -->
 
+- [Project Contents](#project-contents)
 - [About](#about)
 - [License](#license)
 - [Links](#links)
@@ -25,6 +26,11 @@ Project created by [Tristano Ajmone] in 2021/07/14.
 <!-- /MarkdownTOC -->
 
 -----
+
+# Project Contents
+
+- [`/lemon/`][lemon/] — upstream Lemon sources.
+
 
 # About
 
@@ -145,7 +151,9 @@ This is a human-readable summary of the Legal Code contained in the [`LICENSE`][
 [travis badge]: https://travis-ci.com/tajmone/Lemon-PB.svg?branch=main "EditorConfig code styles validation status"
 [travis link]: https://travis-ci.com/tajmone/Lemon-PB
 
-<!-- project files -->
+<!-- project files and folders  -->
+
+[lemon/]: ./lemon/ "Upstream Lemon sources"
 
 [LICENSE]: ./LICENSE "Full text of the CC0 1.0 Universal"
 
