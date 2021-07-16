@@ -5,6 +5,7 @@ The Lemon parser generator, created by [D. Richard Hipp], public domain.
 - [`lemon.c`][lemon.c] — the parser generator program.
 - [`lempar.c`][lempar.c] — the template for the parser generator.
 - [`lemon.md`][lemon.md] — Lemon documentation.
+- [`build.sh`][build.sh] — compiles Lemon via `gcc -Wall -O2`.
 
 These are the original files used for creating the __Lemon-PB__ derivative work.
 
@@ -111,9 +112,10 @@ Since these are the original reference sources for the code adaptations of __Lem
 
 <!-- project files -->
 
-[lemon.c]: ./lemon.c "View source"
-[lempar.c]: ./lempar.c "View source"
-[lemon.md]: ./lemon.md "View source"
+[lemon.c]: ./lemon.c "View Lemon source"
+[lempar.c]: ./lempar.c "View 'lempar.c' source"
+[lemon.md]: ./lemon.md "View Lemon documentation"
+[build.sh]: ./build.sh "View script source"
 
 <!-- upstream sources & check-ins (newest on top) -->
 

@@ -30,6 +30,7 @@ Project created by [Tristano Ajmone] in 2021/07/14.
 # Project Contents
 
 - [`/lemon/`][lemon/] — upstream Lemon sources.
+- [`/lemon-pb/`][lemon-pb/] — Lemon PB work folder.
 
 
 # About
@@ -154,6 +155,7 @@ This is a human-readable summary of the Legal Code contained in the [`LICENSE`][
 <!-- project files and folders  -->
 
 [lemon/]: ./lemon/ "Upstream Lemon sources"
+[lemon-pb/]: ./lemon-pb/ "Lemon PB sources"
 
 [LICENSE]: ./LICENSE "Full text of the CC0 1.0 Universal"
 
