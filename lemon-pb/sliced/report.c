@@ -467,7 +467,7 @@ PRIVATE void tplt_skip_header(FILE *in, int *lineno)
 ** a pointer to the opened file. */
 PRIVATE FILE *tplt_open(struct lemon *lemp)
 {
-  static char templatename[] = "lempar.c";
+  static char templatename[] = "lempar.pb";
   char buf[1000];
   FILE *in;
   char *tpltname;
