@@ -2,6 +2,7 @@
 
 The Lemon parser generator, created by [D. Richard Hipp], public domain.
 
+- [`/examples/`](./examples/) — various examples to test compare with Lemon PB.
 - [`lemon.c`][lemon.c] — the parser generator program.
 - [`lempar.c`][lempar.c] — the template for the parser generator.
 - [`lemon.md`][lemon.md] — Lemon documentation.

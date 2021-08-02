@@ -55,6 +55,15 @@ LICENSE      text
 UNLICENSE    text
 
 
+## Make Files
+#############
+*Makefile*   text eol=lf
+*makefile*   text eol=lf
+*.mak        text eol=lf
+*.mk         text eol=lf
+depend       text eol=lf
+
+
 ## Zipped Archives
 ##################
 *.7z    binary
