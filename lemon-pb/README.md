@@ -20,6 +20,7 @@ The working directory for the Lemon PB project.
 
 # Directory Contents
 
+- [`/drivetests/`][drivetests/] — non-working examples to track changes.
 - [`/sliced/`][sliced/] — de-amalgamated (split) Lemon sources.
 - [`lemonpb.c`][lemonpb.c] — Lemon PB main source.
 - [`lempar.c`][lempar.c] — original Lemon template, unchanged.
@@ -37,9 +38,11 @@ The ultimate goal is to port the C code in `lempar.pb` until it becomes a fully 
 - [`lemonpb.c`][lemonpb.c]
 
 The `lemonpb` sources are being tweaked one step at the time.
-So far, the following changes were implemented:
+This is the current task-list of pending changes:
 
-- Use the `lempar.pb` template instead of `lempar.c`.
+- [x] Use the `lempar.pb` template instead of `lempar.c`.
+- [ ] Change extension of generated file from `.c` to `.pbi`.
+- [ ] Skip BOM when reading `lempar.pb` so it doesn't end in generated file.
 
 ## Lempar PB
 
@@ -65,6 +68,7 @@ The [`lemonpb.c`][lemonpb.c] file just `#include`s all the de-amalgamated slices
 
 <!-- project files and folders -->
 
+[drivetests/]: ./drivetests/ "Navigate to drive tests folder"
 [sliced/]: ./sliced/ "Navigate to de-amalgamated Lemon sources folder"
 
 [lemonpb.c]: ./lemonpb.c "View Lemon PB source"
