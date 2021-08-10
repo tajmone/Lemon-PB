@@ -24,24 +24,34 @@
 ;; The following is the concatenation of all %include directives from the
 ;; input grammar file:
 ;;
-;************ Begin %include sections from the grammar ************************/
-#line 5 "calc.y"
+;-****** Begin %include sections from the grammar ******************************
+; NOTE: None of this really needed!
+; #line 5 "calc.y"
 
-#include <stdio.h>
-#include <stdlib.h> /* malloc, free */
-#include "calc.h"
-#line 34 "calc.c"
-;**************** End of %include directives **********************************/
+; #include <stdio.h>
+; #include <stdlib.h> /* malloc, free */
+; #include "calc.h"
+; #line 34 "calc.c"
+;******* End of %include directives ********************************************
 ;  These constants specify the various numeric values for terminal symbols.
-;**************** Begin token definitions *************************************/
-#ifndef PLUS
-#define PLUS                            1
-#define MINUS                           2
-#define DIVIDE                          3
-#define TIMES                           4
-#define INTEGER                         5
-#endif
-;**************** End token definitions ***************************************/
+;-****** Begin token definitions ***********************************************
+; NOTE: Same as in "calc.h":
+; #ifndef PLUS
+; #define PLUS                            1
+; #define MINUS                           2
+; #define DIVIDE                          3
+; #define TIMES                           4
+; #define INTEGER                         5
+; #endif
+
+Enumeration TerminalSymbols 1
+  #PLUS
+  #MINUS
+  #DIVIDE
+  #TIMES
+  #INTEGER
+EndEnumeration
+;******* End token definitions *************************************************
 
 ;; The next sections is a series of control #defines.
 ;; various aspects of the generated parser.
@@ -94,44 +104,85 @@
 ;;    YY_MIN_REDUCE      Minimum value for reduce actions
 ;;    YY_MAX_REDUCE      Maximum value for reduce actions
 ;;
-#ifndef INTERFACE
-# define INTERFACE 1
-#endif
-;************* Begin control #defines *****************************************/
-#define YYCODETYPE unsigned char
-#define YYNOCODE 8
-#define YYACTIONTYPE unsigned char
+; #ifndef Interface
+; # Define Interface 1
+; #endif
+#Interface = #True
+;-****** Begin control #defines ************************************************
+; #define YYCODETYPE unsigned char
+Macro YYCODETYPE
+  a
+EndMacro
+; ----------------------
+; #define YYNOCODE 8
+#YYNOCODE = 8
+; ----------------------
+; #define YYACTIONTYPE unsigned char
+Macro YYACTIONTYPE
+  a
+EndMacro
+; ----------------------
+; TODO: Port
 #define ParseTOKENTYPE int
+; ----------------------
+; TODO: Port YYMINORTYPE Union Struct
 typedef union {
   int yyinit;
   ParseTOKENTYPE yy0;
 } YYMINORTYPE;
+; ----------------------
+; TODO: Port
 #ifndef YYSTACKDEPTH
 #define YYSTACKDEPTH 100
 #endif
-#define ParseARG_SDECL
-#define ParseARG_PDECL
-#define ParseARG_PARAM
-#define ParseARG_FETCH
-#define ParseARG_STORE
-#define ParseCTX_SDECL
-#define ParseCTX_PDECL
-#define ParseCTX_PARAM
-#define ParseCTX_FETCH
-#define ParseCTX_STORE
-#define YYNSTATE             8
-#define YYNRULE              6
-#define YYNRULE_WITH_ACTION  6
-#define YYNTOKEN             6
-#define YY_MAX_SHIFT         7
-#define YY_MIN_SHIFTREDUCE   11
-#define YY_MAX_SHIFTREDUCE   16
-#define YY_ERROR_ACTION      17
-#define YY_ACCEPT_ACTION     18
-#define YY_NO_ACTION         19
-#define YY_MIN_REDUCE        20
-#define YY_MAX_REDUCE        25
-;************* End control #defines *******************************************/
+; ----------------------
+; #define ParseARG_SDECL
+; #define ParseARG_PDECL
+; #define ParseARG_PARAM
+; #define ParseARG_FETCH
+; #define ParseARG_STORE
+; #define ParseCTX_SDECL
+; #define ParseCTX_PDECL
+; #define ParseCTX_PARAM
+; #define ParseCTX_FETCH
+; #define ParseCTX_STORE
+#ParseARG_SDECL = #True
+#ParseARG_PDECL = #True
+#ParseARG_PARAM = #True
+#ParseARG_FETCH = #True
+#ParseARG_STORE = #True
+#ParseCTX_SDECL = #True
+#ParseCTX_PDECL = #True
+#ParseCTX_PARAM = #True
+#ParseCTX_FETCH = #True
+#ParseCTX_STORE = #True
+; ----------------------
+; #define YYNSTATE             8
+; #define YYNRULE              6
+; #define YYNRULE_WITH_ACTION  6
+; #define YYNTOKEN             6
+; #define YY_MAX_SHIFT         7
+; #define YY_MIN_SHIFTREDUCE   11
+; #define YY_MAX_SHIFTREDUCE   16
+; #define YY_ERROR_ACTION      17
+; #define YY_ACCEPT_ACTION     18
+; #define YY_NO_ACTION         19
+; #define YY_MIN_REDUCE        20
+; #define YY_MAX_REDUCE        25
+#YYNSTATE            = 8
+#YYNRULE             = 6
+#YYNRULE_WITH_ACTION = 6
+#YYNTOKEN            = 6
+#YY_MAX_SHIFT        = 7
+#YY_MIN_SHIFTREDUCE  = 11
+#YY_MAX_SHIFTREDUCE  = 16
+#YY_ERROR_ACTION     = 17
+#YY_ACCEPT_ACTION    = 18
+#YY_NO_ACTION        = 19
+#YY_MIN_REDUCE       = 20
+#YY_MAX_REDUCE       = 25
+;******* End control #defines **************************************************
+; TODO: Port to Macro
 #define YY_NLOOKAHEAD ((int)(sizeof(yy_lookahead)/sizeof(yy_lookahead[0])))
 
 ;; Define the yytestcase() macro to be a no-op if is not already defined
@@ -142,6 +193,7 @@ typedef union {
 ;; code the yytestcase() macro should be turned off.  But it is useful
 ;; for testing.
 ;;
+; TODO: Port to Macro
 #ifndef yytestcase
 # define yytestcase(X)
 #endif
@@ -196,7 +248,7 @@ typedef union {
 ;;                     shifting non-terminals after a reduce.
 ;;  yy_default[]       Default action for each state.
 ;;
-;********** Begin parsing tables **********************************************/
+;-****** Begin parsing tables **************************************************
 #define YY_ACTTAB_COUNT (16)
 static const YYACTIONTYPE yy_action[] = {
  /*     0 */    20,    3,    4,    1,    2,   18,    5,    1,    2,   24,
@@ -222,7 +274,7 @@ static const signed char yy_reduce_ofst[] = {
 static const YYACTIONTYPE yy_default[] = {
  /*     0 */    17,   17,   17,   17,   17,   17,   22,   21,
 };
-;********** End of lemon-generated parsing tables *****************************/
+;******* End of lemon-generated parsing tables *********************************
 
 ;; The next table maps tokens (terminal symbols) into fallback tokens.
 ;; If a construct like the following:
@@ -259,6 +311,7 @@ static const YYCODETYPE yyFallback[] = {
 ;; actually contains the reduce action for the second half of the
 ;; SHIFTREDUCE.
 ;;
+; TODO: Port Structure
 struct yyStackEntry {
   YYACTIONTYPE stateno;  /* The state-number, or reduce action in SHIFTREDUCE */
   YYCODETYPE major;      /* The major token value.  This is the code
@@ -270,6 +323,7 @@ typedef struct yyStackEntry yyStackEntry;
 
 ;; The state of the parser is completely contained in an instance of
 ;; the following structure
+; TODO: Port Structure
 struct yyParser {
   yyStackEntry *yytos;          /* Pointer to top element of the stack */
 #ifdef YYTRACKMAXSTACKDEPTH
@@ -315,6 +369,7 @@ static char *yyTracePrompt = 0;
 ;; Outputs:
 ;; None.
 ;;
+; TODO: Port Procedure
 void ParseTrace(FILE *TraceFILE, char *zTracePrompt){
   yyTraceFILE = TraceFILE;
   yyTracePrompt = zTracePrompt;
@@ -326,6 +381,7 @@ void ParseTrace(FILE *TraceFILE, char *zTracePrompt){
 #if defined(YYCOVERAGE) || !defined(NDEBUG)
 ;; For tracing shifts, the names of all terminals and nonterminals
 ;; are required.  The following table supplies these names */
+; TODO: Port Array
 static const char *const yyTokenName[] = {
   /*    0 */ "$",
   /*    1 */ "PLUS",
@@ -341,6 +397,7 @@ static const char *const yyTokenName[] = {
 #ifndef NDEBUG
 ;; For tracing reduce actions, the names of all rules are required.
 ;;
+; TODO: Port Array
 static const char *const yyRuleName[] = {
  /*   0 */ "program ::= expr",
  /*   1 */ "expr ::= expr MINUS expr",
@@ -390,6 +447,7 @@ static int yyGrowStack(yyParser *p){
 ;; putting an appropriate #define in the %include section of the input
 ;; grammar.
 ;;
+; TODO: Port Macro
 #ifndef YYMALLOCARGTYPE
 # define YYMALLOCARGTYPE size_t
 #endif
@@ -472,8 +530,8 @@ static void yy_destructor(
     ;; which appear on the RHS of the rule, but which are *not* used
     ;; inside the C code.
     ;;
-;********* Begin destructor definitions ***************************************/
-;********* End destructor definitions *****************************************/
+;-****** Begin destructor definitions ******************************************
+;******* End destructor definitions ********************************************
     default:  break;   /* If no destructor action specified: do nothing */
   }
 }
@@ -484,6 +542,7 @@ static void yy_destructor(
 ;; If there is a destructor routine associated with the token which
 ;; is popped from the stack, then call it.
 ;;
+; TODO: Port Procedure
 static void yy_pop_parser_stack(yyParser *pParser){
   yyStackEntry *yytos;
   assert( pParser->yytos!=0 );
@@ -502,6 +561,7 @@ static void yy_pop_parser_stack(yyParser *pParser){
 ;;
 ;; Clear all secondary memory allocations from the parser
 ;;
+; TODO: Port Procedure
 void ParseFinalize(void *p){
   yyParser *pParser = (yyParser*)p;
   while( pParser->yytos>pParser->yystack ) yy_pop_parser_stack(pParser);
@@ -519,6 +579,7 @@ void ParseFinalize(void *p){
 ;; is defined in a %include section of the input grammar) then it is
 ;; assumed that the input pointer is never NULL.
 ;;
+; TODO: Port Procedure
 void ParseFree(
   void *p,                    /* The parser to be deleted */
   void (*freeProc)(void*)     /* Function used to reclaim memory */
@@ -687,8 +748,8 @@ static void yyStackOverflow(yyParser *yypParser){
    while( yypParser->yytos>yypParser->yystack ) yy_pop_parser_stack(yypParser);
    /* Here code is inserted which will execute if the parser
    ** stack every overflows */
-;******** Begin %stack_overflow code ******************************************/
-;******** End %stack_overflow code ********************************************/
+;-****** Begin %stack_overflow code ********************************************
+;******* End %stack_overflow code **********************************************
    ParseARG_STORE /* Suppress warning about unused %extra_argument var */
    ParseCTX_STORE
 }
@@ -810,46 +871,46 @@ static YYACTIONTYPE yy_reduce(
   ;; Beginning here are the reduction cases.  A typical example
   ;; follows:
   ;;   case 0:
-  ;;  #line <lineno> <grammarfile>
+  ;  #line <lineno> <grammarfile>
   ;;     { ... }           // User supplied code
-  ;;  #line <lineno> <thisfile>
+  ;  #line <lineno> <thisfile>
   ;;     break;
   ;;
-;********** Begin reduce actions **********************************************/
+;-****** Begin reduce actions **************************************************
         YYMINORTYPE yylhsminor;
       case 0: /* program ::= expr */
-#line 20 "calc.y"
+; #line 20 "calc.y"
 {
     printf ("Result=%d\n", yymsp[0].minor.yy0);
 }
-#line 825 "calc.c"
+; #line 825 "calc.c"
         break;
       case 1: /* expr ::= expr MINUS expr */
-#line 24 "calc.y"
+; #line 24 "calc.y"
 {
     yylhsminor.yy0 = yymsp[-2].minor.yy0 - yymsp[0].minor.yy0;
 }
-#line 832 "calc.c"
+; #line 832 "calc.c"
   yymsp[-2].minor.yy0 = yylhsminor.yy0;
         break;
       case 2: /* expr ::= expr PLUS expr */
-#line 28 "calc.y"
+; #line 28 "calc.y"
 {
     yylhsminor.yy0 = yymsp[-2].minor.yy0 + yymsp[0].minor.yy0;
 }
-#line 840 "calc.c"
+; #line 840 "calc.c"
   yymsp[-2].minor.yy0 = yylhsminor.yy0;
         break;
       case 3: /* expr ::= expr TIMES expr */
-#line 32 "calc.y"
+; #line 32 "calc.y"
 {
     yylhsminor.yy0 = yymsp[-2].minor.yy0 * yymsp[0].minor.yy0;
 }
-#line 848 "calc.c"
+; #line 848 "calc.c"
   yymsp[-2].minor.yy0 = yylhsminor.yy0;
         break;
       case 4: /* expr ::= expr DIVIDE expr */
-#line 36 "calc.y"
+; #line 36 "calc.y"
 {
     if (yymsp[0].minor.yy0 != 0) {
         yylhsminor.yy0 = yymsp[-2].minor.yy0 / yymsp[0].minor.yy0;
@@ -857,20 +918,20 @@ static YYACTIONTYPE yy_reduce(
         printf ("yylhsminor.yy0 divide by zero detected\n");
     }
 }
-#line 860 "calc.c"
+; #line 860 "calc.c"
   yymsp[-2].minor.yy0 = yylhsminor.yy0;
         break;
       case 5: /* expr ::= INTEGER */
-#line 44 "calc.y"
+; #line 44 "calc.y"
 {
     yylhsminor.yy0 = yymsp[0].minor.yy0;
 }
-#line 868 "calc.c"
+; #line 868 "calc.c"
   yymsp[0].minor.yy0 = yylhsminor.yy0;
         break;
       default:
         break;
-;********** End reduce actions ************************************************/
+;******* End reduce actions ****************************************************
   };
   assert( yyruleno<sizeof(yyRuleInfoLhs)/sizeof(yyRuleInfoLhs[0]) );
   yygoto = yyRuleInfoLhs[yyruleno];
@@ -909,8 +970,8 @@ static void yy_parse_failed(
   while( yypParser->yytos>yypParser->yystack ) yy_pop_parser_stack(yypParser);
   ;; Here code is inserted which will be executed whenever the
   ;; parser fails
-;************ Begin %parse_failure code ***************************************/
-;************ End %parse_failure code *****************************************/
+;-****** Begin %parse_failure code *********************************************
+;******* End %parse_failure code ***********************************************
   ParseARG_STORE /* Suppress warning about unused %extra_argument variable */
   ParseCTX_STORE
 }
@@ -927,12 +988,12 @@ static void yy_syntax_error(
   ParseARG_FETCH
   ParseCTX_FETCH
 #define TOKEN yyminor
-;************ Begin %syntax_error code ****************************************/
-#line 16 "calc.y"
+;-****** Begin %syntax_error code **********************************************
+; #line 16 "calc.y"
 
     printf ("Syntax error!\n");
-#line 934 "calc.c"
-;************ End %syntax_error code ******************************************/
+; #line 934 "calc.c"
+;******* End %syntax_error code ************************************************
   ParseARG_STORE /* Suppress warning about unused %extra_argument variable */
   ParseCTX_STORE
 }
@@ -956,8 +1017,8 @@ static void yy_accept(
   assert( yypParser->yytos==yypParser->yystack );
   ;; Here code is inserted which will be executed whenever the
   ;; parser accepts
-;*********** Begin %parse_accept code *****************************************/
-;*********** End %parse_accept code *******************************************/
+;-****** Begin %parse_accept code **********************************************
+;******* End %parse_accept code ************************************************
   ParseARG_STORE /* Suppress warning about unused %extra_argument variable */
   ParseCTX_STORE
 }
