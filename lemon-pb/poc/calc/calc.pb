@@ -6,8 +6,14 @@
 ; The authors of this program disclaim copyright.
 ; ==============================================================================
 
-; Still the original C code from "main.c", only comments were adapted.
+XIncludeFile "calc.pbi"
 
+CompilerIf #PB_Compiler_Debugger
+  XIncludeFile "calc_test-yyTables.pbi"
+CompilerEndIf
+
+CompilerIf #False ;- Skip WIP Code
+; Still the original C code from "main.c", only comments were adapted.
 int main()
 {
     void* pParser = ParseAlloc (malloc);
@@ -40,5 +46,6 @@ int main()
 
     ParseFree(pParser, free);
 
-    return 0;
+    Return 0;
 }
+CompilerEndIf ;- End Skip WIP Code
