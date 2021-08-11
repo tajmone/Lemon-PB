@@ -22,13 +22,13 @@
 ;; The following is the concatenation of all %include directives from the
 ;; input grammar file:
 ;;
-;************ Begin %include sections from the grammar ************************/
+;-************ Begin: %include sections from the grammar ***********************
 %%
-;**************** End of %include directives **********************************/
+;-************ End of %include directives **************************************
 ;  These constants specify the various numeric values for terminal symbols.
-;**************** Begin token definitions *************************************/
+;-************ Begin: token definitions ****************************************
 %%
-;**************** End token definitions ***************************************/
+;-************ End of token definitions ****************************************
 
 ;; The next sections is a series of control #defines.
 ;; various aspects of the generated parser.
@@ -84,9 +84,9 @@
 #ifndef INTERFACE
 # define INTERFACE 1
 #endif
-;************* Begin control #defines *****************************************/
+;-************ Begin: control #defines *****************************************
 %%
-;************* End control #defines *******************************************/
+;-************ End of control #defines *****************************************
 #define YY_NLOOKAHEAD ((int)(sizeof(yy_lookahead)/sizeof(yy_lookahead[0])))
 
 ;; Define the yytestcase() macro to be a no-op if is not already defined
@@ -151,9 +151,9 @@
 ;;                     shifting non-terminals after a reduce.
 ;;  yy_default[]       Default action for each state.
 ;;
-;********** Begin parsing tables **********************************************/
+;-************ Begin: parsing tables *******************************************
 %%
-;********** End of lemon-generated parsing tables *****************************/
+;-************ End of lemon-generated parsing tables ***************************
 
 ;; The next table maps tokens (terminal symbols) into fallback tokens.
 ;; If a construct like the following:
@@ -392,9 +392,9 @@ static void yy_destructor(
     ;; which appear on the RHS of the rule, but which are *not* used
     ;; inside the C code.
     ;;
-;********* Begin destructor definitions ***************************************/
+;-************ Begin: destructor definitions ***********************************
 %%
-;********* End destructor definitions *****************************************/
+;-************ End of destructor definitions ***********************************
     default:  break;   /* If no destructor action specified: do nothing */
   }
 }
@@ -608,9 +608,9 @@ static void yyStackOverflow(yyParser *yypParser){
    while( yypParser->yytos>yypParser->yystack ) yy_pop_parser_stack(yypParser);
    /* Here code is inserted which will execute if the parser
    ** stack every overflows */
-;******** Begin %stack_overflow code ******************************************/
+;-************ Begin: %stack_overflow code *************************************
 %%
-;******** End %stack_overflow code ********************************************/
+;-************ End of %stack_overflow code *************************************
    ParseARG_STORE /* Suppress warning about unused %extra_argument var */
    ParseCTX_STORE
 }
@@ -727,9 +727,9 @@ static YYACTIONTYPE yy_reduce(
   ;;  #line <lineno> <thisfile>
   ;;     break;
   ;;
-;********** Begin reduce actions **********************************************/
+;-************ Begin: reduce actions *******************************************
 %%
-;********** End reduce actions ************************************************/
+;-************ End of reduce actions *******************************************
   };
   assert( yyruleno<sizeof(yyRuleInfoLhs)/sizeof(yyRuleInfoLhs[0]) );
   yygoto = yyRuleInfoLhs[yyruleno];
@@ -768,9 +768,9 @@ static void yy_parse_failed(
   while( yypParser->yytos>yypParser->yystack ) yy_pop_parser_stack(yypParser);
   ;; Here code is inserted which will be executed whenever the
   ;; parser fails
-;************ Begin %parse_failure code ***************************************/
+;-************ Begin: %parse_failure code **************************************
 %%
-;************ End %parse_failure code *****************************************/
+;-************ End of %parse_failure code **************************************
   ParseARG_STORE /* Suppress warning about unused %extra_argument variable */
   ParseCTX_STORE
 }
@@ -787,9 +787,9 @@ static void yy_syntax_error(
   ParseARG_FETCH
   ParseCTX_FETCH
 #define TOKEN yyminor
-;************ Begin %syntax_error code ****************************************/
+;-************ Begin: %syntax_error code ***************************************
 %%
-;************ End %syntax_error code ******************************************/
+;-************ End of %syntax_error code ***************************************
   ParseARG_STORE /* Suppress warning about unused %extra_argument variable */
   ParseCTX_STORE
 }
@@ -813,9 +813,9 @@ static void yy_accept(
   assert( yypParser->yytos==yypParser->yystack );
   ;; Here code is inserted which will be executed whenever the
   ;; parser accepts
-;*********** Begin %parse_accept code *****************************************/
+;-************ Begin: %parse_accept code ***************************************
 %%
-;*********** End %parse_accept code *******************************************/
+;-************ End of %parse_accept code ***************************************
   ParseARG_STORE /* Suppress warning about unused %extra_argument variable */
   ParseCTX_STORE
 }
