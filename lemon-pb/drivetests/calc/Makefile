@@ -23,11 +23,13 @@ lemonpb: $(lemonpbDir)/lemonpb.c
 # lemon if there was no change in tokens names.
 # Using $(APP).c is sufficient
 # becase generating .c will always create the .h as well.
-$(APP).c: lemonpb $(APP).y $(lemonpbDir)/lempar.pb
+$(APP).pbi: lemonpb $(APP).y $(lemonpbDir)/lempar.pb
 	./lemonpb -T$(lemonpbDir)/lempar.pb $(APP).y
 
-$(APP): $(APP).c $(APP).h main.c
-	cat main.c >> $(APP).c
+$(APP): $(APP).pbi
+
+# $(APP): $(APP).pbi $(APP).h main.pb
+# 	cat main.pb >> $(APP).pbi
 # 	$(CC) -I. -o $(APP) $(LFLAGS) $<
 
 # test: $(APP)
@@ -37,4 +39,4 @@ clean:
 	rm -f *.o
 	rm -f *.out
 	rm -f lemonpb
-	rm -f $(APP) $(APP).c $(APP).h
+	rm -f $(APP) $(APP).pbi $(APP).h

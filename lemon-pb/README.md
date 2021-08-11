@@ -45,7 +45,7 @@ The `lemonpb` sources are being tweaked one step at the time.
 This is the current task-list of pending changes:
 
 - [x] Use the `lempar.pb` template instead of `lempar.c`.
-- [ ] Change extension of generated file from `.c` to `.pbi`.
+- [x] Change extension of generated file from `.c` to `.pbi`.
 - [ ] Skip BOM when reading `lempar.pb` so it doesn't end in generated file.
 
 ## Lempar PB

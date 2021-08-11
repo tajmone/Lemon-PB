@@ -1,30 +1,36 @@
-/*
-** The author of this program disclaims copyright.
-*/
+﻿;; ****// main.pb //************************************************************
+XIncludeFile "calc.pbi"
+
+;;
+;; The author of this program disclaims copyright.
+;;
+
+
+CompilerIf #False ;- Skip WIP Code
 
 int main()
 {
     void* pParser = ParseAlloc (malloc);
 
-    /* First input:
-    ** 15 / 5
-    */
+    ;; First input:
+    ;; 15 / 5
+    ;;
     Parse (pParser, INTEGER, 15);
     Parse (pParser, DIVIDE, 0);
     Parse (pParser, INTEGER, 5);
     Parse (pParser, 0, 0);
 
-    /* Second input:
-    ** 50 + 125
-    */
+    ;; Second input:
+    ;; 50 + 125
+    ;;
     Parse (pParser, INTEGER, 50);
     Parse (pParser, PLUS, 0);
     Parse (pParser, INTEGER, 125);
     Parse (pParser, 0, 0);
 
-    /* Third input:
-    ** 50 * 125 + 125
-    */
+    ;; Third input:
+    ;; 50 * 125 + 125
+    ;;
     Parse (pParser, INTEGER, 50);
     Parse (pParser, TIMES, 0);
     Parse (pParser, INTEGER, 125);
@@ -37,8 +43,10 @@ int main()
     return 0;
 }
 
-/* Local Variables: */
-/* c-basic-offset: 4 */
-/* tab-width: 4 */
-/* indent-tabs-mode: t */
-/* End: */
+;; Local Variables:
+;; c-basic-offset: 4
+;; tab-width: 4
+;; indent-tabs-mode: t
+;; End:
+
+CompilerEndIf ;- End Skip WIP Code
