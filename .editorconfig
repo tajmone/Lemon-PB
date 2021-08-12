@@ -28,7 +28,11 @@ end_of_line = unset
 charset = utf-8-bom
 trim_trailing_whitespace = true
 insert_final_newline = true
-
+; No BOM exceptions:
+[lempar.pb]
+charset = utf-8
+[/lemon-pb/drivetests/**.pbi]
+charset = utf-8
 
 ## C Source Files
 #################

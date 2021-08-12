@@ -1,4 +1,4 @@
-﻿;;
+;;
 ;; 2000-05-29 | 2021-08-02
 ;;
 ;; The author disclaims copyright to this source code.  In place of

@@ -31,6 +31,10 @@ The working directory for the Lemon PB project.
 - [`lempar.pb`][lempar.pb] — new Lemon PB template (WIP).
 - [`build.sh`][build.sh] — compiles Lemon PB via `gcc -Wall -O2`.
 
+> **IMPORTANT** — Until LemonPB is tweaked to skip the BOM when reading `lempar.pb`, the latter needs to be saved in UTF-8 _without BOM_ (see [Issue #3][#3]).
+>
+> Beware that editing `lempar.pb` in the PureBasic IDE will add a BOM back at save time, if set to Unicode files.
+
 # Status
 
 This project is not production ready and _does not yet work_!
@@ -44,9 +48,12 @@ The ultimate goal is to port the C code in `lempar.pb` until it becomes a fully 
 The `lemonpb` sources are being tweaked one step at the time.
 This is the current task-list of pending changes:
 
-- [x] Use the `lempar.pb` template instead of `lempar.c`.
-- [x] Change extension of generated file from `.c` to `.pbi`.
-- [ ] Skip BOM when reading `lempar.pb` so it doesn't end in generated file.
+- [ ] **Lempar Template**:
+    + [x] Use the `lempar.pb` template instead of `lempar.c`.
+    + [ ] Skip BOM when reading `lempar.pb` so it doesn't leak in generated file ([see #3][#3]).
+- [ ] **LemonPB Sources**:
+    + [x] Change extension of generated file from `.c` to `.pbi`.
+    + [ ] Add a BOM to generated `.pbi` ([see #3][#3]).
 
 ## Lempar PB
 
@@ -104,5 +111,8 @@ The [`lemonpb.c`][lemonpb.c] file just `#include`s all the de-amalgamated slices
 [lempar.pb]: ./lempar.pb "View 'lempar.pb' source"
 [build.sh]: ./build.sh "View script source"
 
+<!-- Issues -->
+
+[#3]: https://github.com/tajmone/Lemon-PB/issues/3 "#3 — Handle BOMs in PB Sources."
 
 <!-- EOF -->
